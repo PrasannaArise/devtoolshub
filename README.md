@@ -8,7 +8,7 @@ Requires Node.js 22 or newer. Run `npm test`, `npm run build`, then `npm run dev
 
 ## Cloudflare
 
-Connect this repository in Cloudflare Workers. Use `npm run build` as the build command and `npx wrangler deploy` as the deploy command. `wrangler.json` publishes only the static `dist` assets. The default canonical and sitemap origin is https://devtoolshub.classicdevtools.workers.dev. Set `SITE_URL` to an HTTPS origin when using a custom domain. The existing Vercel configuration is retained for the previous deployment.
+Connect this repository in Cloudflare Workers. Use `npm run build` as the build command and `npx wrangler deploy` as the deploy command. `wrangler.json` publishes only the static `dist` assets. The default canonical and sitemap origin is https://classicdevtools.pages.dev. Set `SITE_URL` to an HTTPS origin when using a custom domain. The existing Vercel configuration is retained for the previous deployment.
 
 ## Tools and limits
 
