@@ -2,7 +2,7 @@ import {mkdir,writeFile,copyFile} from 'node:fs/promises';
 import {tools} from './catalog.mjs';
 import {renderGuide} from './content.mjs';
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const origin=process.env.SITE_URL||'https://devtoolshub.prasannakumarc2525.workers.dev';
+const origin=process.env.SITE_URL||'https://devtoolshub.classicdevtools.workers.dev';
 if(origin&&!/^https:\/\/[a-zA-Z0-9.-]+(?::\d+)?\/?$/.test(origin))throw Error('SITE_URL must be an HTTPS origin.');
 await mkdir('dist',{recursive:true});
 const footer='<footer><span>DevToolsHub · Free tools for everyday development.</span><nav><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></nav></footer>';
