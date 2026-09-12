@@ -8,7 +8,7 @@ Requires Node.js 22 or newer. Run `npm test`, `npm run build`, then `npm run dev
 
 ## Vercel
 
-Import this repository, choose Other as the framework, and deploy. `vercel.json` specifies the build and output directory. The build uses `VERCEL_PROJECT_PRODUCTION_URL` for canonical links and sitemap generation. Set `SITE_URL` to an HTTPS origin when using a custom domain. No environment secrets are required.
+Import this repository, choose Other as the framework, and deploy. `vercel.json` specifies the build and output directory. The build defaults to the confirmed production origin https://devtoolshub-beta.vercel.app for canonical links and sitemap generation. Set `SITE_URL` to an HTTPS origin when using a custom domain. No environment secrets are required.
 
 ## Tools and limits
 
