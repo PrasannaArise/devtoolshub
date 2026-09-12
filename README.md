@@ -6,9 +6,9 @@ Ten free developer tools with static, search-indexable pages. Inputs run locally
 
 Requires Node.js 22 or newer. Run `npm test`, `npm run build`, then `npm run dev`. Open http://127.0.0.1:4173.
 
-## Vercel
+## Cloudflare
 
-Import this repository, choose Other as the framework, and deploy. `vercel.json` specifies the build and output directory. The build defaults to the confirmed production origin https://devtoolshub-beta.vercel.app for canonical links and sitemap generation. Set `SITE_URL` to an HTTPS origin when using a custom domain. No environment secrets are required.
+Connect this repository in Cloudflare Workers. Use `npm run build` as the build command and `npx wrangler deploy` as the deploy command. `wrangler.json` publishes only the static `dist` assets. The default canonical and sitemap origin is https://devtoolshub.prasannakumarc2525.workers.dev. Set `SITE_URL` to an HTTPS origin when using a custom domain. The existing Vercel configuration is retained for the previous deployment.
 
 ## Tools and limits
 
