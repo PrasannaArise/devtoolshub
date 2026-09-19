@@ -14,7 +14,11 @@ const info={about:['About DevToolsHub','DevToolsHub brings ten common developer 
 for(const [id,[title,...paragraphs]]of Object.entries(info)){await writeFile('dist/'+id+'.html',page(title,title+' for DevToolsHub.','<article class="prose"><div class="eyebrow">DevToolsHub</div><h1>'+title+'</h1>'+paragraphs.map(p=>'<p>'+esc(p)+'</p>').join('')+(id==='about'||id==='contact'?'<p><a href="https://github.com/PrasannaArise/devtoolshub/issues">Open GitHub issues ↗</a></p>':'<p>Effective September 12, 2026.</p>')+'</article>',id));}
 await writeFile('dist/404.html',page('Page not found','This page could not be found.','<h1>That page is not in the toolbox.</h1><p><a href="/">Browse all tools →</a></p>'));
 await writeFile('dist/favicon.svg','<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><rect width="40" height="40" rx="8" fill="#2853df"/><text x="20" y="27" text-anchor="middle" font-size="22" font-family="monospace" fill="white">{}</text></svg>');
-await writeFile('dist/robots.txt','User-agent: *\nAllow: /\n'+(origin?'Sitemap: '+origin.replace(/\/$/,'')+'/sitemap.xml\n':''));
-if(origin)await writeFile('dist/sitemap.xml','<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+['',...tools.map(t=>t.id),...Object.keys(info)].map(path=>'<url><loc>'+esc(origin.replace(/\/$/,'')+'/'+path)+'</loc></url>').join('')+'</urlset>');
+const sitemapUrls=origin?['',...tools.map(t=>t.id),...Object.keys(info)].map(path=>origin.replace(/\/$/,'')+'/'+path):[];
+await writeFile('dist/robots.txt','User-agent: *\nAllow: /\n'+(origin?'Sitemap: '+origin.replace(/\/$/,'')+'/sitemap.txt\n':''));
+if(origin){
+  await writeFile('dist/sitemap.xml','<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+sitemapUrls.map(url=>'<url><loc>'+esc(url)+'</loc></url>').join('')+'</urlset>');
+  await writeFile('dist/sitemap.txt',sitemapUrls.join('\n')+'\n');
+}
 for(const file of ['style.css','app.mjs','core.mjs','worker.mjs'])await copyFile(file,'dist/'+file);
 console.log('Built 15 pages and a 404 page.'+(origin?' Sitemap origin: '+origin:' Sitemap omitted until SITE_URL or VERCEL_PROJECT_PRODUCTION_URL is available.'));
