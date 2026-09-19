@@ -5,6 +5,11 @@
   "cleanUrls": true,
   "redirects": [
     {
+      "source": "/",
+      "destination": "https://classicdevtools.pages.dev/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "destination": "https://classicdevtools.pages.dev/:path*",
       "permanent": true
