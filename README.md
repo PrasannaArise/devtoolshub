@@ -19,3 +19,7 @@ Inputs are limited to one million characters. Regex output is capped at 1,000 ma
 ## Privacy and launch
 
 The host receives ordinary HTTP request metadata. Tool inputs are not sent by the application. Public GitHub issues provide the contact route. Advertising and analytics are not included. Review the published privacy and terms text for your operating needs before adding tracking, advertising, or other services.
+
+## Traffic analytics
+
+Cloudflare Web Analytics is enabled for the production Pages deployment.
